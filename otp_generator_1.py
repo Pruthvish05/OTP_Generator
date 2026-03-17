@@ -1,7 +1,23 @@
 import random
+import smtplib
+from email.message import EmailMessage
 def generate_otp(length=6):
-    """Generates a random OTP of specified length."""
     digits = "0123456789"
     otp = "".join(random.choice(digits) for _ in range(length))
     return otp
-print(generate_otp())
+# print(generate_otp())
+server = smtplib.SMTP('smtp.gmail.com', 587)
+server.starttls()
+
+server.login('pruthvishkulkarni14@gmail.com', 'qzjv wjhd ztqf ybze')
+otp = generate_otp()
+message = f"Your OTP is: {otp}"
+recipent_email = input("Enter the recipient's email address: ")
+msg = EmailMessage()
+msg.set_content(message)
+msg['Subject'] = 'Your OTP Code'
+msg['From'] = 'pruthvishkulkarni14@gmail.com'
+msg['To'] = recipent_email
+server.send_message(msg)
+print(f"OTP sent to {recipent_email}")
+
