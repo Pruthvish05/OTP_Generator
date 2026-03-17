@@ -9,7 +9,7 @@ def generate_otp(length=6):
 server = smtplib.SMTP('smtp.gmail.com', 587)
 server.starttls()
 
-server.login('pruthvishkulkarni14@gmail.com', 'qzjv wjhd ztqf ybze')
+server.login('pruthvishkulkarni14@gmail.com', 'etqq qkyy mlhq voxu')
 otp = generate_otp()
 message = f"Your OTP is: {otp}"
 recipent_email = input("Enter the recipient's email address: ")
@@ -20,4 +20,10 @@ msg['From'] = 'pruthvishkulkarni14@gmail.com'
 msg['To'] = recipent_email
 server.send_message(msg)
 print(f"OTP sent to {recipent_email}")
+entered_otp = input(f"Enter the OTP you received: ")
+if entered_otp == otp:
+    print("OTP verified successfully!")
+else:
+    print("Invalid OTP.")
+server.quit()
 
