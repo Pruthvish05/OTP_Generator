@@ -14,7 +14,7 @@ otp = generate_otp()
 # message = f"Your OTP is: {otp}"
 recipient_email = input("Enter the recipient's email address: ")
 msg = EmailMessage()
-msg.set_content(message)
+msg.set_content(f"Your OTP is: {otp}")
 msg['Subject'] = 'Your OTP Code'
 msg['From'] = 'pruthvishkulkarni14@gmail.com'
 msg['To'] = recipient_email
