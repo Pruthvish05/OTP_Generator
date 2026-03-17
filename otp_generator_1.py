@@ -1,5 +1,7 @@
 import random
 def generate_otp(length=6):
-    otp = random.randint(10**(length-1), 10**length - 1)
+    """Generates a random OTP of specified length."""
+    digits = "0123456789"
+    otp = "".join(random.choice(digits) for _ in range(length))
     return otp
-
+print(generate_otp())
