@@ -11,15 +11,15 @@ server.starttls()
 
 server.login('pruthvishkulkarni14@gmail.com', 'etqq qkyy mlhq voxu')
 otp = generate_otp()
-message = f"Your OTP is: {otp}"
-recipent_email = input("Enter the recipient's email address: ")
+# message = f"Your OTP is: {otp}"
+recipient_email = input("Enter the recipient's email address: ")
 msg = EmailMessage()
 msg.set_content(message)
 msg['Subject'] = 'Your OTP Code'
 msg['From'] = 'pruthvishkulkarni14@gmail.com'
-msg['To'] = recipent_email
+msg['To'] = recipient_email
 server.send_message(msg)
-print(f"OTP sent to {recipent_email}")
+print(f"OTP sent to {recipient_email}")
 entered_otp = input(f"Enter the OTP you received: ")
 if entered_otp == otp:
     print("OTP verified successfully!")
